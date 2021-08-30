@@ -49,3 +49,26 @@ If you own a domain, insert it here, else use localhost.
 ```js
 global.domain = 'localhost';
 ```
+
+#### Router template
+You can treat this as a normal express.js server.
+This is set to accept requests from any site with the **cors** Package.
+
+```js
+const cors = require('cors');
+const exp = require('express');
+const http = exp();
+
+http.use(cors({
+    origin: '*',
+    methods: ['GET']
+}));
+
+http.get('/', (req, res) => {
+    res.setStatus = 200;
+    res.send('test');
+    res.end();
+});
+
+exports.app = http;
+```
