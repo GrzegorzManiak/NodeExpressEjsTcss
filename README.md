@@ -11,8 +11,7 @@ Boilerplate code for NEET, Node.js, Express.js, Ejs and Tailwind Css, I made thi
 ## Scripts.
 1. ```npm run debug``` - Runs Nodemon for easy development, automaticaly restarts the server on change to any file.
 2. ```npm run main``` - Runs the Server straight trough node.js.
-3. ```npm run build:css``` - Builds the tailwind.css file directly to the public content repository.
-4. ```npm run prod:css``` - Builds the tailwind.css file directly to the public content repository in production mode.  
+3. ```npm run build:css``` - Builds all css files in the 'tailwind_src' folder directly to the public content repository, copying folder and file names. 
 
 ## Configuration.
 
