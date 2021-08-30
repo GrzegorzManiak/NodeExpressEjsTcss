@@ -1,0 +1,29 @@
+{
+    "name": "neet-boilerplate-code",
+    "version": "1.0.0",
+    "description": "Boilerplate code for NEET, Node.js, Express.js, Ejs and Tailwind Css.",
+    "main": "index.js",
+    "scripts": {
+        "prod:css": "NODE_ENV=production npx tailwindcss build ./views/src/tailwind.css  -o ./content/public/css/tailwind.css",
+        "build:css": "postcss build ./views/src/tailwind.css -o ./content/public/css/tailwind.css",
+        "debug": "nodemon index.js",
+        "run": "nodemon index.js"
+    },
+    "author": "GrzegorzM",
+    "license": "GNU",
+    "homepage": "https://github.com/KetamineKyle/NodeExpressEjsTcss",
+    "dependencies": {
+        "autoprefixer": "^10.3.0",
+        "cors": "^2.8.5",
+        "ejs": "^3.1.0",
+        "express": "^4.17.0",
+        "postcss": "^8.3.6",
+        "postcss-cli": "^8.3.1",
+        "tailwindcss": "^2.2.9",
+        "vhost": "^3.0.0"
+    },
+    "devDependencies": {
+        "win-node-env": "^0.4.0",
+        "nodemon": "^2.0.0"
+    }
+}
