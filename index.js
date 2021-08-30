@@ -1,7 +1,10 @@
-const http = require('express')(),
+const exp = require('express'),
+    http = exp(),
     vhost = require('vhost'),
     https = require('https'),
     resolve = require('path').resolve;
+
+http.disable("x-powered-by");
 
 //--// Your domain name or localhost
 global.domain = 'localhost';
@@ -25,14 +28,22 @@ createSubdomains({
     }
 });
 
+Server().listen(port, error => {
+    if (error) console.error(error);
+    else console.log(`Server listening on port: ${port}`);
+});
+
 function createSubdomains(subDomainObject) {
     Object.keys(subDomainObject.subDomains).forEach((key) => {
-        http.use(vhost(`${key}.${domain}`, require(subDomainObject.subDomains[key]).app))
+        let vhostHttp = require(subDomainObject.subDomains[key]);
+        http.use(vhost(`${key}.${domain}`, vhostHttp.app))
+        vhostHttp.app.disable("x-powered-by");
     });
+
     vhost(domain, require(subDomainObject.index).app)
 }
 
-Server = function() {
+function Server() {
     if (ssl) {
         global.port = 443;
         return https.createServer(certs, http);
@@ -40,7 +51,4 @@ Server = function() {
         global.port = 80;
         return http;
     }
-}().listen(port, error => {
-    if (error) console.error(error);
-    else console.log(`Server listening on port: ${port}`);
-});
+}
