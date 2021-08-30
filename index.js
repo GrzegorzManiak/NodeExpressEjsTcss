@@ -8,8 +8,8 @@ global.domain = 'localhost';
 
 //--// Set to true for express to use user provided certs, 
 //--// Can be used inconjunction with Cloudflare's Origin CA certificates.
-const ssl = false;
-const certs = { key: '', cert: '' }
+const ssl = false,
+    certs = { key: '', cert: '' };
 
 //--// Path for the content subdomain, 
 //--// example: http://content.localhost/public/example.webp
@@ -19,6 +19,7 @@ createSubdomains({
     //--// This is the root directory of your site.
     index: './router/www',
     subDomains: {
+        //--// Subdomain_name: 'path to router',
         www: './router/www',
         content: './router/content'
     }
@@ -28,7 +29,7 @@ function createSubdomains(subDomainObject) {
     Object.keys(subDomainObject.subDomains).forEach((key) => {
         http.use(vhost(`${key}.${domain}`, require(subDomainObject.subDomains[key]).app))
     });
-    vhost(`${domain}`, require(subDomainObject.index).app)
+    vhost(domain, require(subDomainObject.index).app)
 }
 
 Server = function() {

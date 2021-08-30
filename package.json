@@ -7,7 +7,7 @@
         "prod:css": "NODE_ENV=production npx tailwindcss build ./views/src/tailwind.css  -o ./content/public/css/tailwind.css",
         "build:css": "postcss build ./views/src/tailwind.css -o ./content/public/css/tailwind.css",
         "debug": "nodemon index.js",
-        "run": "nodemon index.js"
+        "main": "node index.js"
     },
     "author": "GrzegorzM",
     "license": "GNU",
