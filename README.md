@@ -6,7 +6,7 @@ Boilerplate code for NEET, Node.js, Express.js, Ejs and Tailwind CSS, I made thi
 2. Premade scripts to compile your Tailwind CSS files.  
 3. An easy subdomain router function.  
 4. Easy SSL and Cloudflare Origin CA certificate setup by just setting the **SSL** boolean to **true**. 
-5. Already set up an EJS environment. 
+5. Already set up an EJS and Tailwind CSS environment. 
 
 ## Scripts.
 1. ```npm run debug``` - Runs Nodemon for easy development, automatically restarts the server on change to any file.
