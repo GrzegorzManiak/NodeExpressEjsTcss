@@ -4,8 +4,7 @@
     "description": "Boilerplate code for NEET, Node.js, Express.js, Ejs and Tailwind Css.",
     "main": "index.js",
     "scripts": {
-        "prod:css": "NODE_ENV=production npx tailwindcss build ./views/src/tailwind.css  -o ./content/public/css/tailwind.css",
-        "build:css": "postcss build ./views/src/tailwind.css -o ./content/public/css/tailwind.css",
+        "build:css": "node views/tailwind_src/compile.js",
         "debug": "nodemon index.js",
         "main": "node index.js"
     },
@@ -23,7 +22,7 @@
         "vhost": "^3.0.0"
     },
     "devDependencies": {
-        "win-node-env": "^0.4.0",
-        "nodemon": "^2.0.0"
+        "nodemon": "^2.0.0",
+        "win-node-env": "^0.4.0"
     }
 }
