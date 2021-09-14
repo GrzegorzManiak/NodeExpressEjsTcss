@@ -40,7 +40,8 @@ function createSubdomains(subDomainObject) {
         vhostHttp.app.disable("x-powered-by");
     });
 
-    vhost(domain, require(subDomainObject.index).app)
+    //this is the content of domain root, aka 'domain.com'
+    http.use(vhost(global.domain, require(subDomainObject.index).app))
 }
 
 function Server() {
